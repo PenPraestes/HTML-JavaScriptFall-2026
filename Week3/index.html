@@ -100,9 +100,18 @@ ctx.fillStyle = "red";
         ctx.stroke();
         
 function degreeToRadian(degrees) {
-    return degrees * (Math.PI/180);
+    let radians = degrees * (Math.PI / 180);
+    return radians;
 }
 
+function drawCircle(xPos, yPos, radius, startAngle, endAngle) {
+    ctx.beginPath();
+    ctx.arc(xPos, yPos, radius, degreeToRadian(startAngle), degreeToRadian(endAngle));
+    ctx.fill();
+    ctx.stroke();
+}
+
+drawCircle(10, 10, 10, 0, 360);
     </script>
 </body>
 </html>
