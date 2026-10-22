@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #container {
+            text-align: center;
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+    <title>Week 3</title>
+</head>
+<body>
+    <div id="container">
+         <h1>Week 3 Lab - Drawing on the HTML Canvas</h1>
+         <canvas id="canvas" width="800" height="600" style="border: 1px solid #000;">
+         Your browser does not support the HTML canvas tag.
+         </canvas>
+    </div>
+
+    <script>
+        //Commonly used variables for the canvas and context
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        //Draw a rectangle
+        ctx.fillStyle = "blue";
+        ctx.fillRect(canvas.width/2 - 25, canvas.height/2 - 25 , 50, 50);
+
+        ctx.fillStyle = "pink";
+        ctx.fillRect(750, 550, 50, 50);
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(750, 0, 50, 50);
+
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(0, 0, 50, 50);
+
+        ctx.fillStyle = "purple";
+        ctx.fillRect(0, 550, 50, 50);
+
+        // outline
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 5;
+        ctx.strokeRect(750, 550, 50, 50);
+        ctx.strokeRect(750, 0, 50, 50);
+        ctx.strokeRect(0, 0, 50, 50);
+        ctx.strokeRect(0, 550, 50, 50);
+
+        //lines
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(800, 600);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(800, 0);
+        ctx.lineTo(canvas.width/2 + 25, canvas.height/2 - 25);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(canvas.width/2 + 25, canvas.height/2 - 25);
+        ctx.lineTo(canvas.width/2 + 25, canvas.height/2 + 25);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(canvas.width/2 + 25, canvas.height/2 + 25);
+        ctx.lineTo(canvas.width/2 - 25, canvas.height/2 + 25);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(canvas.width/2 - 25, canvas.height/2 + 25);
+        ctx.lineTo(canvas.width/2 - 25, canvas.height/2 - 25);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(canvas.width/2 - 25, canvas.height/2 - 25);
+        ctx.lineTo(canvas.width/2 + 25, canvas.height/2 - 25);
+        ctx.stroke();
+
+
+        //circle
+        ctx.fillStyle = "yellow";
+        ctx.lineWidth = 1.0;
+        ctx.beginPath();
+        ctx.arc(600, 300, 100, degreeToRadian(45), degreeToRadian(315));
+        ctx.lineTo(600, 300);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+ctx.fillStyle = "red";
+        ctx.lineWidth = 1.0;
+        ctx.beginPath();
+        ctx.arc(200, 300, 100, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        
+function degreeToRadian(degrees) {
+    return degrees * (Math.PI/180);
+}
+
+    </script>
+</body>
+</html>
