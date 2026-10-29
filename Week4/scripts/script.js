@@ -17,6 +17,11 @@ var boxColor = "red";
 
 var shipSprite = {image: document.getElementById("ship"),x:1,y:1, moveX:0, moveY:0};
 
+var a = false;
+var d = false;
+var w = false;
+var s = false;
+
 shipSprite.x = canvas.width/2;
 shipSprite.y = canvas.height/2 + 100;
 
@@ -55,16 +60,16 @@ document.addEventListener("keyup", function(e){
 
     //if ship goes off the screen, make it appear on the other side
     if(shipSprite.x > canvas.width){
-        shipSprite.x = 0 + 25;
+        shipSprite.x = -25;
     }
     if(shipSprite.y > canvas.height){
-        shipSprite.y = 0 + 25;
+        shipSprite.y = -25;
     }
-    if(shipSprite.x < 0){
-        shipSprite.x = canvas.width - 25;
+    if(shipSprite.x < -25){
+        shipSprite.x = canvas.width;
     }
-    if(shipSprite.y < 0){
-        shipSprite.y = canvas.height - 25;
+    if(shipSprite.y < -25){
+        shipSprite.y = canvas.height;
     }
 
 });
