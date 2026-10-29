@@ -15,6 +15,8 @@ var moveDirection = {x:1, y:1};
 
 var boxColor = "red";
 
+var shipSprite = document.getElementById("ship");
+
 
 //Game function
 function game() {
@@ -25,6 +27,7 @@ function game() {
 
     ctx.fillStyle = boxColor;
     ctx.fillRect(startPoint.x, startPoint.y, 25, 25);
+    ctx.drawImage(shipSprite, startPoint.x, startPoint.y, 25, 25);
 
     if(startPoint.y > canvas.height - 25 || startPoint.y < 0){
         moveDirection.y *= -1;
