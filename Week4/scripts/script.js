@@ -15,7 +15,60 @@ var moveDirection = {x:1, y:1};
 
 var boxColor = "red";
 
-var shipSprite = document.getElementById("ship");
+var shipSprite = {image: document.getElementById("ship"),x:1,y:1, moveX:0, moveY:0};
+
+shipSprite.x = canvas.width/2;
+shipSprite.y = canvas.height/2 + 100;
+
+document.addEventListener("keydown", function(e){
+    console.log(e.key);
+    if(e.key == "a"){
+        a = true;
+    }
+    if(e.key == "d"){
+        d = true;
+    }
+    if(e.key == "w"){
+        w = true;
+    }
+    if(e.key == "s"){
+        s = true;
+    }
+});
+document.addEventListener("keyup", function(e){
+    console.log(e.key);
+    if(e.key == "a"){
+        a = false;
+    }
+
+    if(e.key == "d"){
+        d = false;
+    }
+
+    if(e.key == "w"){
+        w = false;
+    }
+
+    if(e.key == "s"){
+        s = false;
+    }
+
+    //if ship goes off the screen, make it appear on the other side
+    if(shipSprite.x > canvas.width){
+        shipSprite.x = 0 + 25;
+    }
+    if(shipSprite.y > canvas.height){
+        shipSprite.y = 0 + 25;
+    }
+    if(shipSprite.x < 0){
+        shipSprite.x = canvas.width - 25;
+    }
+    if(shipSprite.y < 0){
+        shipSprite.y = canvas.height - 25;
+    }
+
+});
+
 
 
 //Game function
@@ -27,7 +80,20 @@ function game() {
 
     ctx.fillStyle = boxColor;
     ctx.fillRect(startPoint.x, startPoint.y, 25, 25);
-    ctx.drawImage(shipSprite, startPoint.x, startPoint.y, 25, 25);
+    ctx.drawImage(shipSprite.image, shipSprite.x, shipSprite.y, 25, 25);
+
+    if(a == true){
+        shipSprite.x -= 1;
+    }
+    if(d == true){
+        shipSprite.x += 1;
+    }
+    if(w == true){
+        shipSprite.y -= 1;
+    }
+    if(s == true){
+        shipSprite.y += 1;
+    }
 
     if(startPoint.y > canvas.height - 25 || startPoint.y < 0){
         moveDirection.y *= -1;
@@ -39,4 +105,4 @@ function game() {
         boxColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
         }
 
-}
+    }
