@@ -1,0 +1,87 @@
+<!DOCTYPE.html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #container {
+            text-align: center;
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+    <title>Week 4</title>
+</head>
+<body>
+    <div id="container">
+         <h1>Week 4 Homework - Shapes Exercise</h1>
+         <canvas id="canvas" width="800" height="800" style="border: 1px solid #000;">
+         Your browser does not support the HTML canvas tag.
+         </canvas>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        //rectangle
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(85, 302, 100, 100);
+
+        ctx.lineWidth = 5;
+            ctx.strokeRect(85, 302, 100, 100);
+
+        //line
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "rgb(255, 0, 0)";
+        ctx.beginPath();
+        ctx.moveTo(86, 682);
+        ctx.lineTo(279, 549);
+        ctx.stroke();
+
+        //circle
+        ctx.fillStyle = "#ffff00";
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 5.0;
+        ctx.beginPath();
+        ctx.arc(400, 400, 67, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        //pentagon
+        ctx.fillStyle = "#ff00ff";
+        ctx.strokeStyle = "#00ffff";
+        ctx.lineWidth = 5.0;
+        ctx.beginPath();
+        ctx.moveTo(558, 309);
+        ctx.lineTo(668, 284);
+        ctx.lineTo(725, 381);
+        ctx.lineTo(651, 465);
+        ctx.lineTo(548, 421);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        //star
+        ctx.fillStyle = "#ffff00";
+        ctx.strokeStyle = "rgb(32, 32, 32)";
+        ctx.lineWidth = 5.0;
+        ctx.beginPath();
+        ctx.moveTo(636, 496);
+        ctx.lineTo(668, 554);
+        ctx.lineTo(734, 567);
+        ctx.lineTo(689, 616);
+        ctx.lineTo(697, 682);
+        ctx.lineTo(636, 654);
+        ctx.lineTo(575, 682);
+        ctx.lineTo(584, 617);
+        ctx.lineTo(538, 567);
+        ctx.lineTo(604, 554);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+
+    </script>
