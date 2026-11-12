@@ -131,7 +131,23 @@ document.addEventListener("keyup", function (e) {
 
 );
 
+//event for button click
+canvas.addEventListener("click", function (e) {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left * (canvas.width / rect.width);
+    const mouseY = e.clientY - rect.top * (canvas.height / rect.height);
 
+    if (states != "game" &&
+        mouseX >= canvas.width / 2 - 100 &&
+        mouseX <= canvas.width / 2 + 100 &&
+        mouseY >= canvas.height / 2 + 100 &&
+        mouseY <= canvas.height / 2 + 80
+        ) {
+        startCooldown = 10;
+        switchScene("game");
+    }
+}
+);
 
 //This is our Game Loop Function
 function game() {
@@ -140,15 +156,19 @@ function game() {
     switch (states) {
         case "title":
             ctx.fillStyle = "black";
-            ctx.font = "24px Arial";
+            ctx.font = "50px Arial";
             let titleText = "Star Shooter";
             ctx.fillText(titleText, canvas.width / 2 - ctx.measureText(titleText).width / 2, canvas.height / 2 -20);
             ctx.font = "18px Arial";
             let instructionText = "(Press Enter to Start)";
             ctx.fillText(instructionText, canvas.width / 2 - ctx.measureText(instructionText).width / 2, canvas.height / 2 +20);
 
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "red";
             ctx.fillRect(canvas.width / 2 - 100, canvas.height / 2 + 100, 200, 80);
+            ctx.fillStyle = "black";
+            ctx.font = "24px Arial";
+            let buttonText = "Start Game";
+            ctx.fillText(buttonText, canvas.width / 2 - ctx.measureText(buttonText).width / 2, canvas.height / 2 + 100 +50);
            
             //switch to game scene when enter is pressed
             if (enter) {
