@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Week 7 Images</title>
+   
+</head>
+<body>
+    <div>
+        <h2>Controls | <span>Use the w,a,s and d keys to move the avatar</span></h2>
+        <canvas width="800" height="500"></canvas>
+    </div>
+   
+    <div id="instructions">
+        <h2>INSTRUCTIONS</h2>
+        <p>
+            This program demonstrates how to add a graphic to your GameObjects.<br>
+            <b>NOTE:</b> <i>You only need to edit the game.js file, but you can and should look at the other two .js files.</i>
+        </p>
+        <p>
+           The GameObject class includes a .graphic function to draw an image and a .img property that contains the information about the image. You can change the image by changing the .img object's properties.
+        </p>
+        <p>
+            The object's img property is an object that contains the details about your image including the scale. The <i>.img.scale.x</i> and <i>.img.scale.y</i> are a percentages (a number between 0 and 1), while the <i>w</i> and <i>h</i> are pixel values. The image uses it's native size by default, so it's best to make your images the correct size to begin with.
+        </p>
+        <p>
+           This file also contains a menu state. The menu has a background object. You can create an image for the menu's background and button in photoshop. These would be two separate images.<br>
+           <b>NOTE:</b> <i>The background for your game could work the same way</i>
+        </p>
+        <p>
+            <ul>
+                <li>Read the notes in the game.js file</li>
+                <li>Comments labeled INSTRUCTIONS are the ones prompting you to write JavaScript</li>
+                <li>Write your JavaScript below the INSTRUCTIONS comments</li>
+            </ul>
+        </p>
+        <p>
+            <b>IMPORTANT:</b>DO NOT REMOVE <i>mrt.jpg</i> from the html or images folder. The game requires this default image to work
+        </p>
+        <p>
+            The menu contains an example of drawing text on the Canvas.
+        </p>
+    </div>
+    <div class="hidden">
+        <!--IMPORTANT: DO NOT REMOVE mrt.jpg. The game requires this default image to work-->
+        <img src="images/mrt.jpg" alt="Mr T" id="default">
+        <img src="images/menu_bg.webp" alt="menu background" id="menu-bg">
+        
+    </div>
+    <!--controls.js contains the keyboard events and variables for movement-->
+    <script src="js/controls.js"></script>
+    <!--GameObject.js contains the game object class we will use or all objects in the game-->
+    <script src="js/GameObject.js"></script>
+    <!--game.js is the game-->
+    <script src="js/game.js"></script>
+</body>
+</html>
